@@ -4,6 +4,7 @@ import { useAuthStore } from "./store/authStore";
 import { RequireAuth } from "./components/RequireAuth";
 import { Header } from "./components/Header";
 import { LoginPage } from "./routes/LoginPage/LoginPage";
+import { HomePage } from "./routes/HomePage/HomePage";
 
 function Placeholder({ name }: { name: string }) {
   return <div style={{ padding: 24 }}>{name} (todo)</div>;
@@ -35,7 +36,7 @@ export function App() {
           </Route>
           <Route path="/">
             <RequireAuth>
-              <Placeholder name="HomePage" />
+              <HomePage />
             </RequireAuth>
           </Route>
           <Route path="/m/:slug">
