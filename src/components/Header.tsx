@@ -33,7 +33,23 @@ export function Header() {
         <ThemeToggle />
         {user ? (
           <>
-            <span className={styles.email}>{user.email}</span>
+            <span
+              className={styles.email}
+              title={user.email ?? undefined}
+            >
+              {(() => {
+                const first =
+                  typeof user.user_metadata?.first_name === "string"
+                    ? user.user_metadata.first_name.trim()
+                    : "";
+                const initial =
+                  typeof user.user_metadata?.last_initial === "string"
+                    ? user.user_metadata.last_initial.trim().slice(0, 1).toUpperCase()
+                    : "";
+                if (first) return initial ? `${first} ${initial}.` : first;
+                return user.email;
+              })()}
+            </span>
             <Button
               variant="ghost"
               onClick={() => signOut()}
