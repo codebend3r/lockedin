@@ -1,0 +1,216 @@
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  overflow: hidden;
+  transition: width 0.2s ease, transform 0.2s ease, border-right-width 0.2s ease;
+}
+
+.sidebar[data-open="false"] {
+  width: 0;
+  border-right-width: 0;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4) var(--space-3) var(--space-5);
+  width: 260px;
+}
+
+.section {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  padding: var(--space-4) var(--space-3) var(--space-1);
+}
+
+.section:first-child {
+  padding-top: 0;
+}
+
+.item,
+.itemActive {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  font-size: 14px;
+  white-space: nowrap;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.item:hover,
+.itemActive:hover {
+  background: var(--color-accent-soft);
+  text-decoration: none;
+}
+
+.itemActive {
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.empty {
+  padding: var(--space-2) var(--space-3);
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.progressItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-accent);
+  background: var(--color-accent-soft);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+}
+
+.progressItem:hover {
+  text-decoration: none;
+  background: var(--color-accent-soft);
+}
+
+.progressBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.progressName {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-text);
+  white-space: normal;
+}
+
+.progressMeta {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.settingRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+}
+
+.settingLabel {
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+.themeGroup {
+  display: inline-flex;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.themeOption,
+.themeActive {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  border: none;
+  border-radius: 0;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.themeOption + .themeOption,
+.themeOption + .themeActive,
+.themeActive + .themeOption,
+.themeActive + .themeActive {
+  border-left: 1px solid var(--color-border);
+}
+
+.themeOption:hover {
+  color: var(--color-text);
+}
+
+.themeActive {
+  background: var(--color-accent);
+  color: white;
+}
+
+.email {
+  padding: var(--space-1) var(--space-3) var(--space-2);
+  font-size: 12px;
+  color: var(--color-text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.signOut {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  text-align: left;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.signOut:hover {
+  background: var(--color-incorrect-bg);
+  color: var(--color-incorrect);
+}
+
+.backdrop {
+  display: none;
+  border: none;
+  padding: 0;
+}
+
+@media (max-width: 767px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 280px;
+    transform: translateX(-100%);
+    z-index: 100;
+    border-right: 1px solid var(--color-border);
+  }
+  .sidebar[data-open="true"] {
+    transform: translateX(0);
+  }
+  .sidebar[data-open="false"] {
+    width: 280px;
+    border-right-width: 1px;
+  }
+  .nav {
+    width: 280px;
+    padding-top: var(--space-5);
+  }
+  .backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 99;
+    cursor: pointer;
+  }
+}

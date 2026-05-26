@@ -4,12 +4,14 @@ import { useAuthStore } from "@/store/authStore";
 import { RequireAuth } from "@/components/RequireAuth";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { Sidebar } from "@/components/Sidebar";
 import { LoginPage } from "@/routes/LoginPage/LoginPage";
 import { HomePage } from "@/routes/HomePage/HomePage";
 import { ModulePage } from "@/routes/ModulePage/ModulePage";
 import { QuizPage } from "@/routes/QuizPage/QuizPage";
 import { ResultsPage } from "@/routes/ResultsPage/ResultsPage";
 import { DesignSystem } from "@/routes/DesignSystem/DesignSystem";
+import styles from "@/App.module.css";
 
 export function App() {
   const bootstrap = useAuthStore((s) => s.bootstrap);
@@ -30,8 +32,10 @@ export function App() {
   return (
     <>
       <Header />
-      <main>
-        <Switch>
+      <div className={styles.body}>
+        <Sidebar />
+        <main className={styles.main}>
+          <Switch>
           <Route path="/login">
             <LoginPage />
           </Route>
@@ -68,7 +72,8 @@ export function App() {
             <div style={{ padding: 24 }}>Not found</div>
           </Route>
         </Switch>
-      </main>
+        </main>
+      </div>
       <Footer />
     </>
   );

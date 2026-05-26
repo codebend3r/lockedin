@@ -1,6 +1,7 @@
 import { Link } from "wouter";
-import { LogOut } from "lucide-react";
+import { LogOut, Menu } from "lucide-react";
 import { useAuthStore } from "@/store/authStore";
+import { useUIStore } from "@/store/uiStore";
 import { Button } from "@/components/Button";
 import { Logo } from "@/components/Logo";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -9,13 +10,25 @@ import styles from "@/components/Header.module.css";
 export function Header() {
   const user = useAuthStore((s) => s.user);
   const signOut = useAuthStore((s) => s.signOut);
+  const toggleSidebar = useUIStore((s) => s.toggleSidebar);
 
   return (
     <header className={styles.header}>
-      <Link href="/" className={styles.brand}>
-        <Logo size={32} />
-        <span>Locked In</span>
-      </Link>
+      <div className={styles.left}>
+        <button
+          type="button"
+          onClick={toggleSidebar}
+          className={styles.menuToggle}
+          aria-label="Toggle navigation"
+          title="Toggle navigation"
+        >
+          <Menu size={20} />
+        </button>
+        <Link href="/" className={styles.brand}>
+          <Logo size={32} />
+          <span>Locked In</span>
+        </Link>
+      </div>
       <div className={styles.right}>
         <ThemeToggle />
         {user ? (
