@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { Route, Switch } from "wouter";
-import { useAuthStore } from "./store/authStore";
-import { RequireAuth } from "./components/RequireAuth";
-import { Header } from "./components/Header";
-import { LoginPage } from "./routes/LoginPage/LoginPage";
-import { HomePage } from "./routes/HomePage/HomePage";
-import { ModulePage } from "./routes/ModulePage/ModulePage";
-import { QuizPage } from "./routes/QuizPage/QuizPage";
-import { ResultsPage } from "./routes/ResultsPage/ResultsPage";
+import { useAuthStore } from "@/store/authStore";
+import { RequireAuth } from "@/components/RequireAuth";
+import { Header } from "@/components/Header";
+import { LoginPage } from "@/routes/LoginPage/LoginPage";
+import { HomePage } from "@/routes/HomePage/HomePage";
+import { ModulePage } from "@/routes/ModulePage/ModulePage";
+import { QuizPage } from "@/routes/QuizPage/QuizPage";
+import { ResultsPage } from "@/routes/ResultsPage/ResultsPage";
 
 export function App() {
   const bootstrap = useAuthStore((s) => s.bootstrap);

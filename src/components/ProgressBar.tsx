@@ -1,4 +1,4 @@
-import styles from "./ProgressBar.module.css";
+import styles from "@/components/ProgressBar.module.css";
 
 type Props = {
   current: number;

@@ -2,7 +2,7 @@ import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import type { ReactNode } from "react";
 import "highlight.js/styles/github.css";
-import "./Markdown.css";
+import "@/components/Markdown.css";
 
 type Props = {
   children: string;

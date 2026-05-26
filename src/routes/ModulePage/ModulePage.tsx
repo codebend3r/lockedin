@@ -10,7 +10,7 @@ import { sampleN, shuffle } from "@/lib/sampling";
 import { useSessionStore } from "@/store/sessionStore";
 import { Card } from "@/components/Card";
 import { Button } from "@/components/Button";
-import styles from "./ModulePage.module.css";
+import styles from "@/routes/ModulePage/ModulePage.module.css";
 
 const MODES: Array<{ value: Mode; label: string; help: string }> = [
   {

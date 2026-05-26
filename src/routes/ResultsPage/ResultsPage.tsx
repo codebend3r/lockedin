@@ -8,7 +8,7 @@ import { useSessionStore } from "@/store/sessionStore";
 import { Card } from "@/components/Card";
 import { Button } from "@/components/Button";
 import { Markdown } from "@/components/Markdown";
-import styles from "./ResultsPage.module.css";
+import styles from "@/routes/ResultsPage/ResultsPage.module.css";
 
 type Params = {
   slug: string;

@@ -1,11 +1,11 @@
-import { supabase } from "./supabase";
+import { supabase } from "@/lib/supabase";
 import type {
   Module,
   Question,
   Session,
   SessionAnswer,
   Mode,
-} from "./types";
+} from "@/lib/types";
 
 export async function fetchModules(): Promise<Module[]> {
   const { data, error } = await supabase

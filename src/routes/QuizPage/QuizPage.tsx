@@ -6,7 +6,7 @@ import { ProgressBar } from "@/components/ProgressBar";
 import { MultipleChoice } from "@/modes/MultipleChoice/MultipleChoice";
 import { Flashcards } from "@/modes/Flashcards/Flashcards";
 import { Recap } from "@/modes/Recap/Recap";
-import styles from "./QuizPage.module.css";
+import styles from "@/routes/QuizPage/QuizPage.module.css";
 
 type Params = {
   slug: string;

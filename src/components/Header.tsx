@@ -1,8 +1,8 @@
 import { Link } from "wouter";
 import { Lock } from "lucide-react";
 import { useAuthStore } from "@/store/authStore";
-import { Button } from "./Button";
-import styles from "./Header.module.css";
+import { Button } from "@/components/Button";
+import styles from "@/components/Header.module.css";
 
 export function Header() {
   const user = useAuthStore((s) => s.user);

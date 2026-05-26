@@ -7,7 +7,7 @@ import {
 } from "@/lib/queries";
 import type { Module } from "@/lib/types";
 import { Card } from "@/components/Card";
-import styles from "./HomePage.module.css";
+import styles from "@/routes/HomePage/HomePage.module.css";
 
 export function HomePage() {
   const [modules, setModules] = useState<Module[]>([]);

@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { Question } from "@/lib/types";
 import { Button } from "@/components/Button";
 import { Markdown } from "@/components/Markdown";
-import styles from "./Flashcards.module.css";
+import styles from "@/modes/Flashcards/Flashcards.module.css";
 
 export type AnswerPayload = {
   selfGrade: boolean;

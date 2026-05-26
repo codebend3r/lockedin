@@ -3,7 +3,7 @@ import type { Question } from "@/lib/types";
 import { shuffle } from "@/lib/sampling";
 import { Button } from "@/components/Button";
 import { Markdown } from "@/components/Markdown";
-import styles from "./MultipleChoice.module.css";
+import styles from "@/modes/MultipleChoice/MultipleChoice.module.css";
 
 export type AnswerPayload = {
   choiceId: string;

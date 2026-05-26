@@ -1,5 +1,5 @@
 import type { HTMLAttributes, ReactNode } from "react";
-import styles from "./Card.module.css";
+import styles from "@/components/Card.module.css";
 
 type Props = HTMLAttributes<HTMLDivElement> & {
   children: ReactNode;
