@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    .ring { fill: none; stroke: #1e2939; stroke-width: 5; }
+    .bull { fill: #1e2939; }
+    .shaft { stroke: #2c5282; stroke-width: 6; stroke-linecap: butt; fill: none; }
+    .fletch { fill: #2c5282; }
+    @media (prefers-color-scheme: dark) {
+      .ring { stroke: #e6edf3; }
+      .bull { fill: #e6edf3; }
+      .shaft { stroke: #58a6ff; }
+      .fletch { fill: #58a6ff; }
+    }
+  </style>
+  <circle class="ring" cx="26" cy="38" r="22" />
+  <circle class="ring" cx="26" cy="38" r="12" />
+  <circle class="bull" cx="26" cy="38" r="3" />
+  <line class="shaft" x1="26" y1="38" x2="50" y2="14" />
+  <polygon class="fletch" points="50,14 58,16 56,8 48,6" />
+</svg>

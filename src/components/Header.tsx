@@ -1,7 +1,7 @@
 import { Link } from "wouter";
-import { Lock } from "lucide-react";
 import { useAuthStore } from "@/store/authStore";
 import { Button } from "@/components/Button";
+import { Logo } from "@/components/Logo";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import styles from "@/components/Header.module.css";
 
@@ -12,7 +12,7 @@ export function Header() {
   return (
     <header className={styles.header}>
       <Link href="/" className={styles.brand}>
-        <Lock size={18} />
+        <Logo size={22} />
         <span>Locked In</span>
       </Link>
       <div className={styles.right}>
