@@ -5,6 +5,7 @@ import { RequireAuth } from "./components/RequireAuth";
 import { Header } from "./components/Header";
 import { LoginPage } from "./routes/LoginPage/LoginPage";
 import { HomePage } from "./routes/HomePage/HomePage";
+import { ModulePage } from "./routes/ModulePage/ModulePage";
 
 function Placeholder({ name }: { name: string }) {
   return <div style={{ padding: 24 }}>{name} (todo)</div>;
@@ -42,7 +43,7 @@ export function App() {
           <Route path="/m/:slug">
             {(params) => (
               <RequireAuth>
-                <Placeholder name={`ModulePage(${params.slug})`} />
+                <ModulePage params={params} />
               </RequireAuth>
             )}
           </Route>
