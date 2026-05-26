@@ -62,6 +62,20 @@ export function PreferencesPage() {
       <Card className={styles.card}>
         <form className={styles.form} onSubmit={save}>
           <label className={styles.field}>
+            <span className={styles.label}>Account email</span>
+            <input
+              type="email"
+              value={user?.email ?? ""}
+              readOnly
+              className={`${styles.input} ${styles.readonly}`}
+              aria-readonly="true"
+              tabIndex={-1}
+            />
+            <span className={styles.help}>
+              Tied to your account — sign out to switch.
+            </span>
+          </label>
+          <label className={styles.field}>
             <span className={styles.label}>First name</span>
             <input
               type="text"

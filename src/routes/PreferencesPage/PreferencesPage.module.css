@@ -62,6 +62,22 @@
   font-weight: 700;
 }
 
+.readonly {
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+.readonly:focus {
+  outline: none;
+  border-color: var(--color-border);
+}
+
+.help {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
 .error {
   background: var(--color-incorrect-bg);
   color: var(--color-incorrect);
