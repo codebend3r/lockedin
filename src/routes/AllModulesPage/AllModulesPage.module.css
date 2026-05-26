@@ -24,13 +24,34 @@
   color: var(--color-text-muted);
 }
 
-.empty {
-  text-align: center;
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
 }
 
-.emptyText {
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.sectionHeading {
+  margin: 0;
+  font-size: 18px;
+  color: var(--color-text);
+}
+
+.placeholder {
+  text-align: center;
+  padding: var(--space-4);
+}
+
+.placeholderText {
   margin: 0;
   color: var(--color-text-muted);
+  font-style: italic;
+  font-size: 14px;
 }
 
 .grid {
