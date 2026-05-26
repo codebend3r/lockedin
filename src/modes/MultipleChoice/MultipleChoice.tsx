@@ -17,7 +17,7 @@ type Props = {
 };
 
 export function MultipleChoice({ question, onAnswer, onNext }: Props) {
-  const choices = useMemo(() => shuffle(question.choices), [question.id]);
+  const choices = useMemo(() => shuffle(question.choices), [question.choices]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const correctId = choices.find((c) => c.is_correct)?.id ?? null;
