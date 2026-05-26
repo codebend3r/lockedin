@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import { LogOut } from "lucide-react";
 import { useAuthStore } from "@/store/authStore";
 import { Button } from "@/components/Button";
 import { Logo } from "@/components/Logo";
@@ -20,8 +21,14 @@ export function Header() {
         {user ? (
           <>
             <span className={styles.email}>{user.email}</span>
-            <Button variant="ghost" onClick={() => signOut()}>
-              Sign out
+            <Button
+              variant="ghost"
+              onClick={() => signOut()}
+              aria-label="Sign out"
+              title="Sign out"
+            >
+              <LogOut size={16} />
+              <span className={styles.signOutLabel}>Sign out</span>
             </Button>
           </>
         ) : null}
