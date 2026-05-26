@@ -13,7 +13,32 @@
   gap: var(--space-2);
 }
 
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
 .counter {
   font-size: 13px;
   color: var(--color-text-muted);
+}
+
+.exit {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font-size: 13px;
+  transition: border-color 0.12s ease, color 0.12s ease;
+}
+
+.exit:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }

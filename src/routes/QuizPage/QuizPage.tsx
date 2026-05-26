@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useLocation } from "wouter";
+import { LogOut } from "lucide-react";
 import { useSessionStore } from "@/store/sessionStore";
 import { completeSession, recordAnswer } from "@/lib/queries";
 import { ProgressBar } from "@/components/ProgressBar";
@@ -20,6 +21,7 @@ export function QuizPage({ params }: { params: Params }) {
   const answers = useSessionStore((s) => s.answers);
   const record = useSessionStore((s) => s.recordAnswer);
   const advance = useSessionStore((s) => s.advance);
+  const setIndex = useSessionStore((s) => s.setIndex);
   const [, navigate] = useLocation();
 
   useEffect(() => {
@@ -27,6 +29,32 @@ export function QuizPage({ params }: { params: Params }) {
       navigate(`/m/${params.slug}`, { replace: true });
     }
   }, [sessionId, mode, questions.length, navigate, params.slug]);
+
+  const normalizedRef = useRef(false);
+  useEffect(() => {
+    if (normalizedRef.current) return;
+    if (!sessionId || questions.length === 0) return;
+    normalizedRef.current = true;
+    if (answers.length >= questions.length) {
+      (async () => {
+        const score = answers.filter((a) => a.isCorrect).length;
+        await completeSession({ sessionId, score });
+        navigate(`/m/${params.slug}/results/${sessionId}`, { replace: true });
+      })();
+      return;
+    }
+    if (currentIndex < answers.length) {
+      setIndex(answers.length);
+    }
+  }, [
+    sessionId,
+    answers,
+    currentIndex,
+    questions.length,
+    params.slug,
+    navigate,
+    setIndex,
+  ]);
 
   if (!sessionId || !mode || questions.length === 0) return null;
   if (currentIndex >= questions.length) return null;
@@ -86,12 +114,25 @@ export function QuizPage({ params }: { params: Params }) {
     await finishIfDone(nextAnswers);
   };
 
+  const handleExit = () => navigate("/");
+
   return (
     <div className={styles.page}>
       <div className={styles.top}>
-        <span className={styles.counter}>
-          Question {currentIndex + 1} of {total}
-        </span>
+        <div className={styles.topRow}>
+          <span className={styles.counter}>
+            Question {currentIndex + 1} of {total}
+          </span>
+          <button
+            type="button"
+            className={styles.exit}
+            onClick={handleExit}
+            title="Save progress and return home"
+          >
+            <LogOut size={14} />
+            <span>Save &amp; exit</span>
+          </button>
+        </div>
         <ProgressBar current={currentIndex + (answers.length > currentIndex ? 1 : 0)} total={total} />
       </div>
 
