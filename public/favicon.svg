@@ -1,19 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <style>
-    .ring { fill: none; stroke: #1e2939; stroke-width: 5; }
-    .bull { fill: #1e2939; }
-    .shaft { stroke: #2c5282; stroke-width: 6; stroke-linecap: butt; fill: none; }
-    .fletch { fill: #2c5282; }
+    .face { fill: #1e2939; }
+    .item { fill: #2c5282; }
     @media (prefers-color-scheme: dark) {
-      .ring { stroke: #e6edf3; }
-      .bull { fill: #e6edf3; }
-      .shaft { stroke: #58a6ff; }
-      .fletch { fill: #58a6ff; }
+      .face { fill: #e6edf3; }
+      .item { fill: #58a6ff; }
     }
   </style>
-  <circle class="ring" cx="26" cy="38" r="22" />
-  <circle class="ring" cx="26" cy="38" r="12" />
-  <circle class="bull" cx="26" cy="38" r="3" />
-  <line class="shaft" x1="26" y1="38" x2="50" y2="14" />
-  <polygon class="fletch" points="50,14 58,16 56,8 48,6" />
+  <path d="M 8 22 L 8 46 L 32 56 L 32 32 Z" class="face" opacity="0.55" />
+  <path d="M 56 22 L 56 46 L 32 56 L 32 32 Z" class="face" opacity="0.75" />
+  <path d="M 32 12 L 56 22 L 32 32 L 8 22 Z" class="face" />
+  <circle cx="20" cy="22" r="2.5" class="item" />
+  <rect x="29" y="19" width="8" height="4" rx="1" class="item" />
+  <circle cx="44" cy="24" r="2.5" class="item" />
 </svg>

@@ -17,11 +17,23 @@ export function Logo({ size = 20, title }: Props) {
       aria-label={title}
     >
       {title ? <title>{title}</title> : null}
-      <circle className={styles.ring} cx="26" cy="38" r="22" />
-      <circle className={styles.ring} cx="26" cy="38" r="12" />
-      <circle className={styles.bull} cx="26" cy="38" r="3" />
-      <line className={styles.shaft} x1="26" y1="38" x2="50" y2="14" />
-      <polygon className={styles.fletch} points="50,14 58,16 56,8 48,6" />
+      <path
+        d="M 8 22 L 8 46 L 32 56 L 32 32 Z"
+        className={styles.face}
+        opacity="0.55"
+      />
+      <path
+        d="M 56 22 L 56 46 L 32 56 L 32 32 Z"
+        className={styles.face}
+        opacity="0.75"
+      />
+      <path
+        d="M 32 12 L 56 22 L 32 32 L 8 22 Z"
+        className={styles.face}
+      />
+      <circle cx="20" cy="22" r="2.5" className={styles.item} />
+      <rect x="29" y="19" width="8" height="4" rx="1" className={styles.item} />
+      <circle cx="44" cy="24" r="2.5" className={styles.item} />
     </svg>
   );
 }

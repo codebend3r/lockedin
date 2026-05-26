@@ -1,20 +1,7 @@
-.ring {
-  fill: none;
-  stroke: var(--color-text);
-  stroke-width: 5;
-}
-
-.bull {
+.face {
   fill: var(--color-text);
 }
 
-.shaft {
-  stroke: var(--color-accent);
-  stroke-width: 6;
-  stroke-linecap: butt;
-  fill: none;
-}
-
-.fletch {
+.item {
   fill: var(--color-accent);
 }
