@@ -5,6 +5,7 @@ import { RequireAuth } from "@/components/RequireAuth";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Sidebar } from "@/components/Sidebar";
+import { OnboardingModal } from "@/components/OnboardingModal";
 import { LoginPage } from "@/routes/LoginPage/LoginPage";
 import { HomePage } from "@/routes/HomePage/HomePage";
 import { ModulePage } from "@/routes/ModulePage/ModulePage";
@@ -20,10 +21,16 @@ import styles from "@/App.module.css";
 export function App() {
   const bootstrap = useAuthStore((s) => s.bootstrap);
   const status = useAuthStore((s) => s.status);
+  const user = useAuthStore((s) => s.user);
 
   useEffect(() => {
     void bootstrap();
   }, [bootstrap]);
+
+  const needsOnboarding =
+    status === "authenticated" &&
+    !!user &&
+    user.user_metadata?.onboarded !== true;
 
   if (status === "loading") {
     return (
@@ -99,6 +106,7 @@ export function App() {
         </main>
       </div>
       <Footer />
+      {needsOnboarding ? <OnboardingModal /> : null}
     </>
   );
 }
