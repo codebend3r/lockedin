@@ -1,7 +1,7 @@
 import { useState } from "react";
-import type { Question } from "../../lib/types";
-import { Button } from "../../components/Button";
-import { Markdown } from "../../components/Markdown";
+import type { Question } from "@/lib/types";
+import { Button } from "@/components/Button";
+import { Markdown } from "@/components/Markdown";
 import styles from "./Recap.module.css";
 
 export type AnswerPayload = {

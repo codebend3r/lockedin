@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useLocation } from "wouter";
-import { useSessionStore } from "../../store/sessionStore";
-import { completeSession, recordAnswer } from "../../lib/queries";
-import { ProgressBar } from "../../components/ProgressBar";
-import { MultipleChoice } from "../../modes/MultipleChoice/MultipleChoice";
-import { Flashcards } from "../../modes/Flashcards/Flashcards";
-import { Recap } from "../../modes/Recap/Recap";
+import { useSessionStore } from "@/store/sessionStore";
+import { completeSession, recordAnswer } from "@/lib/queries";
+import { ProgressBar } from "@/components/ProgressBar";
+import { MultipleChoice } from "@/modes/MultipleChoice/MultipleChoice";
+import { Flashcards } from "@/modes/Flashcards/Flashcards";
+import { Recap } from "@/modes/Recap/Recap";
 import styles from "./QuizPage.module.css";
 
 type Params = {

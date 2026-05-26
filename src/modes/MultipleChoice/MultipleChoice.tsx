@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
-import type { Question } from "../../lib/types";
-import { shuffle } from "../../lib/sampling";
-import { Button } from "../../components/Button";
-import { Markdown } from "../../components/Markdown";
+import type { Question } from "@/lib/types";
+import { shuffle } from "@/lib/sampling";
+import { Button } from "@/components/Button";
+import { Markdown } from "@/components/Markdown";
 import styles from "./MultipleChoice.module.css";
 
 export type AnswerPayload = {

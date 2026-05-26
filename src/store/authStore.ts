@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import type { Session, User } from "@supabase/supabase-js";
-import { supabase } from "../lib/supabase";
+import { supabase } from "@/lib/supabase";
 import { useSessionStore } from "./sessionStore";
 
 type AuthStatus = "loading" | "authenticated" | "unauthenticated";

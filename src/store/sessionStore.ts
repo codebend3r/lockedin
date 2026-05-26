@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import type { Mode, Question } from "../lib/types";
+import type { Mode, Question } from "@/lib/types";
 
 export type RecordedAnswer = {
   questionId: string;

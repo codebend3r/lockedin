@@ -3,11 +3,11 @@ import { Link, useLocation } from "wouter";
 import {
   fetchSessionWithAnswers,
   type SessionWithAnswers,
-} from "../../lib/queries";
-import { useSessionStore } from "../../store/sessionStore";
-import { Card } from "../../components/Card";
-import { Button } from "../../components/Button";
-import { Markdown } from "../../components/Markdown";
+} from "@/lib/queries";
+import { useSessionStore } from "@/store/sessionStore";
+import { Card } from "@/components/Card";
+import { Button } from "@/components/Button";
+import { Markdown } from "@/components/Markdown";
 import styles from "./ResultsPage.module.css";
 
 type Params = {

@@ -4,9 +4,9 @@ import {
   fetchModules,
   fetchLastScoreByModule,
   type LastScore,
-} from "../../lib/queries";
-import type { Module } from "../../lib/types";
-import { Card } from "../../components/Card";
+} from "@/lib/queries";
+import type { Module } from "@/lib/types";
+import { Card } from "@/components/Card";
 import styles from "./HomePage.module.css";
 
 export function HomePage() {

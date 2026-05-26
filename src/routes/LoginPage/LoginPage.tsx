@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
-import { useAuthStore } from "../../store/authStore";
-import { Button } from "../../components/Button";
-import { Card } from "../../components/Card";
+import { useAuthStore } from "@/store/authStore";
+import { Button } from "@/components/Button";
+import { Card } from "@/components/Card";
 import styles from "./LoginPage.module.css";
 
 type Tab = "signin" | "signup";

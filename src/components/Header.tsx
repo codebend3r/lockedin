@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Lock } from "lucide-react";
-import { useAuthStore } from "../store/authStore";
+import { useAuthStore } from "@/store/authStore";
 import { Button } from "./Button";
 import styles from "./Header.module.css";
 

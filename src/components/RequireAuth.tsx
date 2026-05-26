@@ -1,6 +1,6 @@
 import { useEffect, type ReactNode } from "react";
 import { useLocation } from "wouter";
-import { useAuthStore } from "../store/authStore";
+import { useAuthStore } from "@/store/authStore";
 
 type Props = {
   children: ReactNode;

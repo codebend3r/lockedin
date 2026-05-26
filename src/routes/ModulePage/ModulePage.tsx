@@ -4,12 +4,12 @@ import {
   fetchModuleBySlug,
   fetchQuestionsForModule,
   createSession,
-} from "../../lib/queries";
-import type { Mode, Module } from "../../lib/types";
-import { sampleN, shuffle } from "../../lib/sampling";
-import { useSessionStore } from "../../store/sessionStore";
-import { Card } from "../../components/Card";
-import { Button } from "../../components/Button";
+} from "@/lib/queries";
+import type { Mode, Module } from "@/lib/types";
+import { sampleN, shuffle } from "@/lib/sampling";
+import { useSessionStore } from "@/store/sessionStore";
+import { Card } from "@/components/Card";
+import { Button } from "@/components/Button";
 import styles from "./ModulePage.module.css";
 
 const MODES: Array<{ value: Mode; label: string; help: string }> = [
