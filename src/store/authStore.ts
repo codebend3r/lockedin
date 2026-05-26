@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import type { Session, User } from "@supabase/supabase-js";
 import { supabase } from "../lib/supabase";
+import { useSessionStore } from "./sessionStore";
 
 type AuthStatus = "loading" | "authenticated" | "unauthenticated";
 
@@ -58,6 +59,7 @@ export const useAuthStore = create<AuthState>((set) => ({
   },
 
   signOut: async () => {
+    useSessionStore.getState().reset();
     const { error } = await supabase.auth.signOut();
     if (error) throw error;
   },
