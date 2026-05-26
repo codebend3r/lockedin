@@ -10,7 +10,7 @@ export interface AnswerPayload {
 
 interface Props {
   question: Question;
-  onAnswer: (payload: AnswerPayload) => void;
+  onAnswer: (payload: AnswerPayload) => Promise<void>;
   onNext: () => void;
 }
 
@@ -18,10 +18,10 @@ export function Recap({ question, onAnswer, onNext }: Props) {
   const [revealed, setRevealed] = useState(false);
   const [graded, setGraded] = useState(false);
 
-  const grade = (gotIt: boolean) => {
+  const grade = async (gotIt: boolean) => {
     if (graded) return;
     setGraded(true);
-    onAnswer({ selfGrade: gotIt, isCorrect: gotIt });
+    await onAnswer({ selfGrade: gotIt, isCorrect: gotIt });
   };
 
   const handleNext = () => {

@@ -10,7 +10,7 @@ export interface AnswerPayload {
 
 interface Props {
   question: Question;
-  onAnswer: (payload: AnswerPayload) => void;
+  onAnswer: (payload: AnswerPayload) => Promise<void>;
   onNext: () => void;
 }
 
@@ -18,10 +18,10 @@ export function Flashcards({ question, onAnswer, onNext }: Props) {
   const [flipped, setFlipped] = useState(false);
   const [graded, setGraded] = useState(false);
 
-  const grade = (gotIt: boolean) => {
+  const grade = async (gotIt: boolean) => {
     if (graded) return;
     setGraded(true);
-    onAnswer({ selfGrade: gotIt, isCorrect: gotIt });
+    await onAnswer({ selfGrade: gotIt, isCorrect: gotIt });
   };
 
   const handleNext = () => {

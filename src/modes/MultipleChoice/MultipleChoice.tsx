@@ -11,7 +11,7 @@ export interface AnswerPayload {
 
 interface Props {
   question: Question;
-  onAnswer: (payload: AnswerPayload) => void;
+  onAnswer: (payload: AnswerPayload) => Promise<void>;
   onNext: () => void;
 }
 
@@ -22,11 +22,11 @@ export function MultipleChoice({ question, onAnswer, onNext }: Props) {
   const correctId = choices.find((c) => c.is_correct)?.id ?? null;
   const locked = selectedId !== null;
 
-  const handlePick = (choiceId: string) => {
+  const handlePick = async (choiceId: string) => {
     if (locked) return;
     const isCorrect = choiceId === correctId;
     setSelectedId(choiceId);
-    onAnswer({ choiceId, isCorrect });
+    await onAnswer({ choiceId, isCorrect });
   };
 
   const handleNext = () => {
