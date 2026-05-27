@@ -4,7 +4,7 @@
 insert into modules (slug, name, description, type, total_questions)
 values (
   'typescript',
-  'TypeScript Test',
+  'TypeScript',
   'Sharpen TypeScript — types, generics, narrowing, and tsconfig.',
   'dynamic',
   100

@@ -4,7 +4,7 @@
 insert into modules (slug, name, description, type, total_questions)
 values (
   'g1',
-  'G1 Driver''s Test',
+  'G1 Driver''s License',
   'Ontario G1 written knowledge test — signs and rules of the road.',
   'static',
   40

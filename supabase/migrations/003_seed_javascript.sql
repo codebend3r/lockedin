@@ -4,7 +4,7 @@
 insert into modules (slug, name, description, type, total_questions)
 values (
   'javascript',
-  'JavaScript Test',
+  'JavaScript',
   'Brush up on JavaScript fundamentals — types, scope, async, and gotchas.',
   'dynamic',
   100
