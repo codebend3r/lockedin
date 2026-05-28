@@ -63,7 +63,10 @@ test: {
 ```
 
 The Vite config will need the triple-slash directive `/// <reference
-types="vitest" />` at the top so TypeScript recognises the `test` key.
+types="vitest/config" />` at the top so TypeScript recognises the `test`
+key. The `vitest/config` subpath is the documented type-augmentation
+entry point for `defineConfig` (the bare `vitest` package re-exports
+enough types to typecheck, but it's not the idiomatic form).
 
 ## The 3 tests
 

@@ -68,7 +68,7 @@ Only three keys are new: `test`, `test:watch`, `check`. All others are preserved
 Replace the entire contents of `vite.config.ts` with:
 
 ```ts
-/// <reference types="vitest" />
+/// <reference types="vitest/config" />
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { fileURLToPath, URL } from "node:url";
@@ -86,7 +86,7 @@ export default defineConfig({
 });
 ```
 
-The triple-slash reference at the top is mandatory — without it, TypeScript does not recognise the `test` key on `defineConfig`'s argument and `npm run typecheck` will fail.
+The triple-slash reference at the top is mandatory — without it, TypeScript does not recognise the `test` key on `defineConfig`'s argument and `npm run typecheck` will fail. Use the `vitest/config` subpath (the documented type-augmentation entry point), not the bare `vitest` package.
 
 - [ ] **Step 1.4: Verify `vitest` finds no test files yet**
 
@@ -130,7 +130,7 @@ LI: install `vitest` and add `test` + `check` scripts
 - pin `vitest@^2.1.9` for `vite@^5` compat
 - `test`, `test:watch`, `check` scripts
 - `check` composes `lint` → `typecheck` → `test` via `run-s`
-- `vite.config.ts` gains `test` block with `/// <reference types="vitest" />`
+- `vite.config.ts` gains `test` block with `/// <reference types="vitest/config" />`
 EOF
 )"
 ```
