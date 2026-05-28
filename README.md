@@ -53,13 +53,24 @@ Supabase (Postgres + Auth + RLS) · Vitest.
    ```
    VITE_SUPABASE_URL=https://xxxx.supabase.co
    VITE_SUPABASE_ANON_KEY=<anon key>
+   SUPABASE_DB_URL=postgres://postgres.<ref>:<password>@<host>:5432/postgres
    ```
-4. In the Supabase SQL Editor, run each migration in order:
-   - `supabase/migrations/001_init.sql` — schema, RLS policies
-   - `supabase/migrations/005_module_requests.sql` — module-request feature
-   - `supabase/migrations/002_seed_g1.sql` through
-     `supabase/migrations/021_seed_portuguese.sql` — seed any modules you
-     want. Each `_seed_*.sql` is independent; install only what you need.
+   `SUPABASE_DB_URL` comes from Dashboard → Project Settings → Database →
+   Connection string (URI, with password). Only needed for `bun run db:apply`.
+4. Apply migrations. Three options, pick one:
+   - **`bun run db:apply`** — runs every `supabase/migrations/*.sql` via
+     `psql` in sort order. Requires `psql` on PATH (`brew install libpq` and
+     add to PATH, or `brew install postgresql`). Pass file paths to apply a
+     subset, e.g. `bun run db:apply supabase/migrations/001_init.sql`.
+   - **Supabase SQL Editor** — paste each file manually. Useful if you only
+     want a subset of seeds; each `_seed_*.sql` is independent.
+   - **`bun run db:push`** — uses the Supabase CLI. One-time setup:
+     `brew install supabase/tap/supabase && supabase login && supabase link
+     --project-ref <ref>`. Migration filenames must be renamed to
+     `YYYYMMDDHHMMSS_name.sql` for the CLI to detect them.
+
+   For a fresh project, apply `001_init.sql` and `005_module_requests.sql`
+   plus any `_seed_*.sql` modules you want.
 5. Run the dev server:
    ```
    bun run dev
@@ -75,6 +86,10 @@ Supabase (Postgres + Auth + RLS) · Vitest.
 - `bun run test` — run Vitest once
 - `bun run test:watch` — Vitest in watch mode
 - `bun run check` — lint + typecheck + test
+- `bun run db:apply` — apply `supabase/migrations/*.sql` via `psql` (uses
+  `SUPABASE_DB_URL`)
+- `bun run db:push` — apply migrations via the Supabase CLI (`supabase db
+  push`); requires `supabase init` + `supabase link` first
 
 ## Regenerating screenshots
 

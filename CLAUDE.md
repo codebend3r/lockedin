@@ -28,3 +28,15 @@ is genuinely required.
   mutate `state.alive` rather than `let alive = true`.
 - For values built up across an `if`/`else`, prefer an IIFE returning the
   value, or extract a helper, instead of declaring with `let` and reassigning.
+
+## Dependencies: pin exact versions
+
+Always pin exact package versions in `package.json`. No `^`, no `~`, no
+ranges.
+
+- `"react": "18.3.1"` instead of `"react": "^18.3.1"`.
+- Applies to both `dependencies` and `devDependencies`.
+- When adding a package, use `bun add --exact <pkg>` (or edit
+  `package.json` directly) so the saved spec is the exact version.
+- When bumping, edit the version explicitly — don't rely on range
+  resolution.
