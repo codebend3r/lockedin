@@ -57,10 +57,14 @@ the `@/*` alias):
 
 ```ts
 test: {
-  include: ["src/**/*.test.ts"],
+  include: ["src/**/*.test.{ts,tsx}"],
   // node env is default; jsdom not needed for pure helpers
 }
 ```
+
+The glob covers `.tsx` even though no `.tsx` tests exist yet — Vitest's
+own default covers both, and an explicit `.ts`-only override would
+silently skip any future component test.
 
 The Vite config will need the triple-slash directive `/// <reference
 types="vitest/config" />` at the top so TypeScript recognises the `test`

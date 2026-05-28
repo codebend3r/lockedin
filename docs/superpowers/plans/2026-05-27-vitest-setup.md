@@ -81,10 +81,12 @@ export default defineConfig({
     },
   },
   test: {
-    include: ["src/**/*.test.ts"],
+    include: ["src/**/*.test.{ts,tsx}"],
   },
 });
 ```
+
+The `include` glob covers `.tsx` so future component tests are discovered without an additional config change.
 
 The triple-slash reference at the top is mandatory — without it, TypeScript does not recognise the `test` key on `defineConfig`'s argument and `npm run typecheck` will fail. Use the `vitest/config` subpath (the documented type-augmentation entry point), not the bare `vitest` package.
 
