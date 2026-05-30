@@ -83,10 +83,10 @@ const MODULES = [
     created_at: "2024-01-01T00:00:00.000Z",
   },
   {
-    id: "m-javascript",
-    slug: "javascript",
-    name: "JavaScript",
-    description: "Brush up on JavaScript — closures, prototypes, async, and the language's sharp edges.",
+    id: "m-javascript-1",
+    slug: "javascript-1",
+    name: "JavaScript — Level 1",
+    description: "JavaScript basics — types, operators, core syntax, and everyday array/object usage.",
     type: "dynamic",
     total_questions: 100,
     created_at: "2024-01-02T00:00:00.000Z",
@@ -167,7 +167,7 @@ const MODULES = [
 
 const LAST_SCORES = [
   {
-    module_id: "m-javascript",
+    module_id: "m-javascript-1",
     score: 17,
     session_size: 20,
     completed_at: "2026-05-25T14:22:00.000Z",
@@ -460,7 +460,7 @@ const JS_QUESTION_SEEDS: JSQuestion[] = [
 
 const ALL_JS_QUESTIONS = JS_QUESTION_SEEDS.map((seed, i) => ({
   id: `q-${i + 1}`,
-  module_id: "m-javascript",
+  module_id: "m-javascript-1",
   category: seed.category,
   prompt: seed.prompt,
   explanation: seed.explanation,
@@ -555,7 +555,7 @@ await page.route(`https://${SUPABASE_HOST}/**`, async (route) => {
 
   if (path === "/rest/v1/questions") {
     const moduleId = matchEq(reqUrl, "module_id");
-    if (moduleId === "m-javascript") {
+    if (moduleId === "m-javascript-1") {
       return json(route, ALL_JS_QUESTIONS);
     }
     return json(route, []);
@@ -596,8 +596,8 @@ await page.waitForTimeout(700);
 console.log("→ capturing home.png");
 await page.screenshot({ path: join(OUT_DIR, "home.png") });
 
-console.log("→ navigating to /m/javascript");
-await page.goto(`${DEV_URL}/m/javascript`, { waitUntil: "networkidle" });
+console.log("→ navigating to /m/javascript-1");
+await page.goto(`${DEV_URL}/m/javascript-1`, { waitUntil: "networkidle" });
 await page.waitForTimeout(500);
 
 console.log("→ capturing module.png");
@@ -605,7 +605,7 @@ await page.screenshot({ path: join(OUT_DIR, "module.png") });
 
 console.log("→ starting quiz");
 await page.getByRole("button", { name: "Start" }).click();
-await page.waitForURL("**/m/javascript/quiz", { timeout: 15_000 });
+await page.waitForURL("**/m/javascript-1/quiz", { timeout: 15_000 });
 await page.waitForTimeout(800);
 
 console.log("→ capturing quiz.png");

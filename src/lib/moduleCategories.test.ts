@@ -3,7 +3,7 @@ import { categoryForModule } from "./moduleCategories";
 
 describe("categoryForModule", () => {
   it("maps a known module slug to its category", () => {
-    expect(categoryForModule("javascript")).toBe("programming-languages");
+    expect(categoryForModule("javascript-1")).toBe("programming-languages");
   });
 
   it("falls back to 'other' for an unknown slug", () => {

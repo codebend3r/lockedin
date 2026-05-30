@@ -1,6 +1,8 @@
 export const MODULE_CATEGORY_SLUG: Record<string, string> = {
   g1: "driving-licensing",
-  javascript: "programming-languages",
+  "javascript-1": "programming-languages",
+  "javascript-2": "programming-languages",
+  "javascript-3": "programming-languages",
   typescript: "programming-languages",
   python: "programming-languages",
   c: "programming-languages",
