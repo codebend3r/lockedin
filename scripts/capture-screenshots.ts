@@ -110,12 +110,12 @@ const MODULES = [
     created_at: "2024-01-04T00:00:00.000Z",
   },
   {
-    id: "m-rust",
-    slug: "rust",
-    name: "Rust",
-    description: "Brush up on Rust — ownership, borrowing, traits, and lifetimes.",
+    id: "m-rust-1",
+    slug: "rust-1",
+    name: "Rust — Level 1",
+    description: "Rust basics — types, mutability, ownership intuition, references, and basic structs/enums.",
     type: "dynamic",
-    total_questions: 100,
+    total_questions: 24,
     created_at: "2024-01-05T00:00:00.000Z",
   },
   {
